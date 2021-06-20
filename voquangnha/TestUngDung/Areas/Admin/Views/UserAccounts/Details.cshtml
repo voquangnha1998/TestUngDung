@@ -1,0 +1,66 @@
+﻿@model ModelEF.Model.UserAccount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    dl {
+        background-color: white;
+        padding: 20px;
+    }
+    .user-detail{
+        padding: 20px;
+    }
+    dt {
+        color: black;
+    }
+</style>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><i class="fa fa-home">&nbsp;</i>@Html.ActionLink("Quản lý người dùng", "Index", "UserAccounts")</li>
+    <li class="breadcrumb-item active">Chi tiết người dùng</li>
+</ol>
+
+<div class="user-detail">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        @if (Model.Status == true)
+        {
+            <dd style="color:chartreuse"> Normal</dd>
+        }
+        else
+        {
+            <dd style=" color:orangered">Blocked </dd>
+        }
+        @*<dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    <div class=" form-actions no-color">
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Quay lại", "Index", "UserAccounts", new { @class = "btn btn-danger" })
+    </div>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

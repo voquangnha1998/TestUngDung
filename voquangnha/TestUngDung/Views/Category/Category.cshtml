@@ -1,0 +1,42 @@
+﻿
+@model List<ModelEF.Model.Product>
+@{
+    var category = (ModelEF.Model.Category)ViewBag.Category;
+    ViewBag.Title = "ProductOfCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div >
+    <div>
+        <ol class="breadcrumb">
+            <li class="active"><i class="fa fa-home">&nbsp;</i>@Html.ActionLink("Trang chủ", "Index", "Home") >>@category.Name</li>
+
+        </ol>
+    </div>
+    <!-- /.div -->
+
+    <div class="row">
+        <!-- /.row -->
+        @foreach (var item in Model)
+        {
+            var url = "/chi-tiet/" + item.ID;
+
+            <div class="col-md-3 text-center col-sm-8 col-xs-12">
+                <div class="thumbnail product-box">
+                    <div><a href="@url"><img style="height:120px" src="@Url.Content(item.Image)" alt="" /></a></div>
+                    <div class="caption">
+                        <div style="height: 50px">
+                            <b>@item.Name</b>
+                        </div>
+                        <p style=" color:red">Giá: @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span></p>
+
+
+                        <p><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a> <a href="@url" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- /.col -->
+        <!-- /.col -->
+    </div>
+</div>

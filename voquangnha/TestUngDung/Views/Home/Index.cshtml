@@ -1,0 +1,406 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listproductnew = (List<ModelEF.Model.Product>)ViewBag.NewProducts;
+    //slide
+    var listcategoryproduct5 = (List<ModelEF.Model.Category>)ViewBag.CategoryProduct5;
+    //
+    var listcategoryproduct = (List<ModelEF.Model.Category>)ViewBag.CategoryProduct;
+
+    var listIphone = (List<ModelEF.Model.Product>)ViewBag.IphoneProducts;
+    var listSamsung = (List<ModelEF.Model.Product>)ViewBag.SamsungProducts;
+    var listNokia = (List<ModelEF.Model.Product>)ViewBag.NokiaProducts;
+    var listVivo = (List<ModelEF.Model.Product>)ViewBag.VivoProducts;
+    var listXiaomi = (List<ModelEF.Model.Product>)ViewBag.OppoProducts;
+}
+<style>
+    h8 {
+    }
+</style>
+<div class="row">
+    <div class="col-md-9">
+
+        <div class="main box-border">
+            <div id="mi-slider" class="mi-slider">
+
+                <ul>
+                    @if (listIphone != null)
+                    {
+                        foreach (var item in listIphone)
+                        {
+                            var url = "/chi-tiet/" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /><h4>@item.Name</h4>
+                                </a>
+                                <div class="btn-add-cart">
+                                    <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có sản phẩm</li>
+                    }
+
+
+                </ul>
+                <ul>
+                    @if (listSamsung != null)
+                    {
+                        foreach (var item in listSamsung)
+                        {
+                            var url = "/chi-tiet/" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /><h4>@item.Name</h4>
+                                </a>
+                                <div class="btn-add-cart">
+                                    <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có sản phẩm</li>
+                    }
+                </ul>
+                <ul>
+                    @if (listNokia != null)
+                    {
+                        foreach (var item in listNokia)
+                        {
+                            var url = "/chi-tiet/" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /><h4>@item.Name</h4>
+                                </a>
+                                <div class="btn-add-cart">
+                                    <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có sản phẩm</li>
+                    }
+                </ul>
+                <ul>
+                    @if (listVivo != null)
+                    {
+                        foreach (var item in listVivo)
+                        {
+                            var url = "/chi-tiet/" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /><h4>@item.Name</h4>
+                                </a>
+                                <div class="btn-add-cart">
+                                    <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có sản phẩm</li>
+                    }
+                </ul>
+                <ul>
+
+                    @if (listXiaomi != null)
+                    {
+                        foreach (var item in listXiaomi)
+                        {
+                            var url = "/chi-tiet/" + item.ID;
+                            <li>
+                                <a href="@url">
+                                    <img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /><h4>@item.Name</h4>
+                                </a>
+                                <div class="btn-add-cart">
+                                    <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có sản phẩm</li>
+                    }
+                </ul>
+                <nav>
+                    @if (listcategoryproduct5 != null)
+                    {
+                        foreach (var item in listcategoryproduct5)
+                        {
+                            <a href="#">@item.Name</a>
+                        }
+                    }
+                    else
+                    {
+                        <span>Không tồn tại</span>
+                    }
+
+
+                </nav>
+            </div>
+
+        </div>
+        <br />
+    </div>
+    <!-- /.col -->
+
+    <div class="col-md-3 text-center">
+        <div>
+            <a href="/tat-ca-san-pham/">SẢN PHẨM MỚI NHẤT</a>
+
+        </div>
+        @if (listproductnew != null)
+        {
+            foreach (var item in listproductnew)
+            {
+                var url = "/chi-tiet/" + item.ID;
+                <div class=" col-md-12 col-sm-6 col-xs-6">
+
+                    <div class="thumbnail product-box">
+                        <a href="@url"><img style="width:42%;height:42%" src="@Url.Content(item.Image)" alt="" /></a>
+                        <div class="caption">
+                            <h10><a href="#">@item.Name</a></h10>
+                            <p>Price : @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span>  </p>
+
+                        </div>
+                        <div class="btn-add-cart">
+                            <h4><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a></h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <a href="/tat-ca-san-pham/" class="list-group-item active">
+                DANH MỤC SẢN PHẨM
+            </a>
+            <ul class="list-group">
+                @if (listcategoryproduct != null)
+                {
+                    foreach (var item in listcategoryproduct)
+                    {
+                        var url = "/danh-muc-san-pham/" + item.ID;
+                        <li class="list-group-item">
+                            <a href="@url">@item.Name</a>
+
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>không</li>
+                }
+
+
+
+            </ul>
+        </div>
+        <div>
+            <a href="/tat-ca-san-pham/" class="list-group-item active">
+                TẤT CẢ SẢN PHẨM
+            </a>
+        </div>
+        <!-- /.div -->
+        <!-- /.div -->
+        <!-- /.div -->
+        <!-- /.div -->
+    </div>
+
+    <div class="col-md-9">
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Danh mục sản phẩm</a></li>
+                <li class="active">IPHONE</li>
+            </ol>
+        </div>
+        <!-- /.div -->
+
+        <div class="row">
+            @foreach (var item in listIphone)
+            {
+                var url = "/chi-tiet/" + item.ID;
+
+                <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                    <div class="thumbnail product-box">
+                        <div><a href="@url"><img style="height:120px" src="@Url.Content(item.Image)" alt="" /></a></div>
+                        <div class="caption">
+                            <div style="height: 50px">
+                                <b>@item.Name</b>
+                            </div>
+                            <p style=" color:red">Giá: @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span></p>
+
+
+                            <p><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a> <a href="@url" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <ul class="pagination alg-right-pad">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+        <!-- /.row SAMSUNG -->
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Danh mục sản phẩm</a></li>
+                <li class="active">SAMSUNG</li>
+            </ol>
+        </div>
+        <!-- /.div -->
+
+        <div class="row">
+            @foreach (var item in listSamsung)
+            {
+                var url = "/chi-tiet/" + item.ID;
+
+                <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                    <div class="thumbnail product-box">
+                        <div><a href="@url"><img style="height:120px" src="@Url.Content(item.Image)" alt="" /></a></div>
+                        <div class="caption">
+                            <div style="height: 50px">
+                                <b>@item.Name</b>
+                            </div>
+                            <p style=" color:red">Giá: @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span></p>
+
+
+                            <p><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a> <a href="@url" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <ul class="pagination alg-right-pad">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+        <!-- /.NOKIA -->
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Danh mục sản phẩm</a></li>
+                <li class="active">NOKIA</li>
+            </ol>
+        </div>
+        <!-- /.div -->
+
+        <div class="row">
+            @foreach (var item in listNokia)
+            {
+                var url = "/chi-tiet/" + item.ID;
+
+                <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                    <div class="thumbnail product-box">
+                        <div><a href="@url"><img style="height:120px" src="@Url.Content(item.Image)" alt="" /></a></div>
+                        <div class="caption">
+                            <div style="height: 50px">
+                                <b>@item.Name</b>
+                            </div>
+                            <p style=" color:red">Giá: @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span></p>
+
+
+                            <p><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a> <a href="@url" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <ul class="pagination alg-right-pad">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+        <!-- /.Viovo -->
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Danh mục sản phẩm</a></li>
+                <li class="active">VIVO</li>
+            </ol>
+        </div>
+        <!-- /.div -->
+
+        <div class="row">
+            @foreach (var item in listVivo)
+            {
+                var url = "/chi-tiet/" + item.ID;
+
+                <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                    <div class="thumbnail product-box">
+                        <div><a href="@url"><img style="height:120px" src="@Url.Content(item.Image)" alt="" /></a></div>
+                        <div class="caption">
+                            <div style="height: 50px">
+                                <b>@item.Name</b>
+                            </div>
+                            <p style=" color:red">Giá: @string.Format("{0:#,##0}", item.UnitCost) <span>VNĐ</span></p>
+
+
+                            <p><a href="/them-gio-hang?productId=@item.ID&quantity=1" class="btn btn-success" role="button">Thêm vào giỏ hàng</a> <a href="#" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <ul class="pagination alg-right-pad">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>

@@ -1,0 +1,101 @@
+﻿@model ModelEF.Model.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    dl {
+        background-color: white;
+        padding: 20px;
+    }
+
+    .product-detail {
+        padding: 20px;
+    }
+
+    dt {
+        color: black;
+    }
+</style>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><i class="fa fa-home">&nbsp;</i>@Html.ActionLink("Quản lý sản phẩm", "Index", "Products")</li>
+    <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
+</ol>
+
+<div class="product-detail">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Image)" style="width: 200px; height:250px;margin:10px" />
+            @*@Html.DisplayFor(model => model.Image)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        @if (Model.Status == true)
+        {
+            <dd style="color:chartreuse"> Còn kinh doanh</dd>
+        }
+        else
+        {
+            <dd style=" color:orangered">Hết kinh doanh </dd>
+        }
+        @*<dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>*@
+
+    </dl>
+   
+</div>
+<p>
+    <div class=" form-actions no-color">
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Quay lại", "Index", "Products", new { @class = "btn btn-danger" })
+    </div>
+</p>

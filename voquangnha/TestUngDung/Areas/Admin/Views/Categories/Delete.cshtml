@@ -1,0 +1,57 @@
+﻿@model ModelEF.Model.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<
+<style>
+    dl {
+        background-color: white;
+        padding: 20px;
+    }
+
+    .cate-delete {
+        padding: 20px;
+    }
+
+    dt {
+        color: black;
+    }
+</style>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><i class="fa fa-home">&nbsp;</i>@Html.ActionLink("Quản lý loại sản phẩm", "Index", "Categories")</li>
+    <li class="breadcrumb-item active">Xóa loại sản phẩm</li>
+</ol>
+
+<div class="cate-delete">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-success" /> |
+            @Html.ActionLink("Back to List", "Index", "Categories", new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>
